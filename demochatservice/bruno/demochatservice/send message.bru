@@ -1,0 +1,19 @@
+meta {
+  name: send message
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://127.0.0.1:5000/send
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxfQ.AHMxv1ZyUSH21Iq3Cb6AFbXgFQjrsOADGcSm83UG770
+}
+
+body:json {
+  {"to": "max"}
+}
