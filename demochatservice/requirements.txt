@@ -3,3 +3,4 @@ Flask-SQLAlchemy
 SQLAlchemy-serializer
 pyjwt
 werkzeug
+setuptools

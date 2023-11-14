@@ -43,9 +43,9 @@ def handle_exception(e):
 @app.route('/conversations')
 @token_required
 def get_conversations(current_user):
-    receivers = db.session.execute(db.Select(models.ChatMessage.receiver).where(models.ChatMessage.sender == current_user.username).distinct()).all()
-    senders = db.session.execute(db.Select(models.ChatMessage.sender).where(models.ChatMessage.receiver == current_user.username).distinct()).all()
-    return helper.to_json(list(set(receivers) | set(senders)), use_to_dict=False)
+    all_usernames = [x[0] for x in list(db.session.execute(db.Select(models.User.username)).all())]
+    all_usernames.remove(current_user.username)
+    return jsonify(all_usernames)
 
 
 @app.route('/conversation/<other>')
